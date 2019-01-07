@@ -1,0 +1,9 @@
+{
+  "name": "numeral-converter",
+  "version": "1.0.0",
+  "description": "tech test for ynap",
+  "main": "index.js",
+  "repository url": "https://github.com/jdLYNC/numeral-converter",
+  "author": "josh lynch",
+  "license": "MIT"
+}
