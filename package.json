@@ -5,5 +5,12 @@
   "main": "index.js",
   "repository url": "https://github.com/jdLYNC/numeral-converter",
   "author": "josh lynch",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha ./test/*.test.js"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
 }
