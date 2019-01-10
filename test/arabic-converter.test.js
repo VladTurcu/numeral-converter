@@ -5,8 +5,8 @@ function converter(n) {
 }
 
 // unit tests for arabic numeral converter class
-describe('arabic numeral converter', function() {
-  
+describe('arabic numeral converter', function () {
+
   it('should reject non-number type arguments with a TypeError', function() {
     expect(() => converter('i')).to.throw(TypeError);
   });
