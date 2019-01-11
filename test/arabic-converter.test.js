@@ -23,51 +23,43 @@ describe('arabic numeral converter', function () {
     expect(() => converter(4000)).to.throw(RangeError);
   });
 
-  it('should convert 1 to \"i\"', function() {
+  it('should handle direct conversions', function() {
     expect(converter(1)).to.equal('i');
-  });
-  
-  it('should convert 5 to \"v\"', function() {
     expect(converter(5)).to.equal('v');
-  });
-
-  it('should convert 10 to \"x\"', function() {
     expect(converter(10)).to.equal('x');
-  });
-  
-  it('should convert 50 to \"l\"', function() {
     expect(converter(50)).to.equal('l');
-  });
-  
-  it('should convert 100 to \"c\"', function() {
     expect(converter(100)).to.equal('c');
-  });
-  
-  it('should convert 500 to \"d\"', function() {
     expect(converter(500)).to.equal('d');
-  });
-  
-  it('should convert 1000 to \"m\"', function() {
     expect(converter(1000)).to.equal('m');
   });
 
-  it('should convert 528 to \"dxxviii\"', function () {
-    expect(converter(528)).to.equal('dxxviii');
+  it('should handle basic subtractive notation', function() {
+    expect(converter(4)).to.equal('iv');
+    expect(converter(9)).to.equal('ix');
+    expect(converter(40)).to.equal('xl');
+    expect(converter(90)).to.equal('xc');
+    expect(converter(400)).to.equal('cd');
+    expect(converter(900)).to.equal('cm');
   });
 
-  it('should convert 1769 to \"mdcclxix\"', function () {
+  it('should handle basic additive notation', function() {
+    expect(converter(2)).to.equal('ii');
+    expect(converter(3)).to.equal('iii');
+    expect(converter(6)).to.equal('vi');
+    expect(converter(7)).to.equal('vii');
+    expect(converter(8)).to.equal('viii');
+    expect(converter(11)).to.equal('xi');
+    expect(converter(55)).to.equal('lv');
+    expect(converter(101)).to.equal('ci');
+    expect(converter(110)).to.equal('cx');
+    expect(converter(2000)).to.equal('mm');
+  });
+
+  it('should handle complex mixed notation', function() {
+    expect(converter(448)).to.equal('cdxlviii');
     expect(converter(1769)).to.equal('mdcclxix');
-  });
-  
-  it('should convert 2981 to \"mmcmlxxxi\"', function () {
     expect(converter(2981)).to.equal('mmcmlxxxi');
-  });
-  
-  it('should convert 3849 to \"mmmdcccxlix\"', function () {
     expect(converter(3849)).to.equal('mmmdcccxlix');
-  });
-  
-  it('should convert 3999 to \"mmmcmxcix\"', function() {
     expect(converter(3999)).to.equal('mmmcmxcix');
   });
 
