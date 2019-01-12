@@ -12,51 +12,61 @@ describe('roman numeral converter', function () {
   });
 
   it('should reject strings containing non-numeral characters with a SyntaxError', function () {
-    expect(() => converter('xoxo')).to.throw(SyntaxError);
+    expect(() => converter('XOXO')).to.throw(SyntaxError);
   });
 
   it('should reject numbers above mmmcmxcix (3999) with a RangeError', function () {
-    expect(() => converter('mmmm')).to.throw(RangeError);
+    expect(() => converter('MMMM')).to.throw(RangeError);
   });
 
   it('should handle direct conversions', function () {
+    expect(converter('I')).to.equal(1);
+    expect(converter('V')).to.equal(5);
+    expect(converter('X')).to.equal(10);
+    expect(converter('L')).to.equal(50);
+    expect(converter('C')).to.equal(100);
+    expect(converter('D')).to.equal(500);
+    expect(converter('M')).to.equal(1000);
+  });
+
+  it('should handle basic subtractive notation', function () {
+    expect(converter('IV')).to.equal(4);
+    expect(converter('IX')).to.equal(9);
+    expect(converter('XL')).to.equal(40);
+    expect(converter('XC')).to.equal(90);
+    expect(converter('CD')).to.equal(400);
+    expect(converter('CM')).to.equal(900);
+  });
+
+  it('should handle basic additive notation', function () {
+    expect(converter('II')).to.equal(2);
+    expect(converter('III')).to.equal(3);
+    expect(converter('VI')).to.equal(6);
+    expect(converter('VII')).to.equal(7);
+    expect(converter('VIII')).to.equal(8);
+    expect(converter('XI')).to.equal(11);
+    expect(converter('LV')).to.equal(55);
+    expect(converter('CI')).to.equal(101);
+    expect(converter('CX')).to.equal(110);
+    expect(converter('MM')).to.equal(2000);
+  });
+
+  it('should handle complex mixed notation', function () {
+    expect(converter('CDXLVIII')).to.equal(448);
+    expect(converter('MDCCLXIX')).to.equal(1769);
+    expect(converter('MMCMLXXXI')).to.equal(2981);
+    expect(converter('MMMDCCCXLIX')).to.equal(3849);
+    expect(converter('MMMCMXCIX')).to.equal(3999);
+  });
+
+  it('should handle lower case characters', function () {
     expect(converter('i')).to.equal(1);
     expect(converter('v')).to.equal(5);
     expect(converter('x')).to.equal(10);
     expect(converter('l')).to.equal(50);
-    expect(converter('c')).to.equal(100);
+    expect(converter('d')).to.equal(100);
     expect(converter('d')).to.equal(500);
     expect(converter('m')).to.equal(1000);
-  });
-
-  it('should handle basic subtractive notation', function () {
-    expect(converter('iv')).to.equal(4);
-    expect(converter('ix')).to.equal(9);
-    expect(converter('xl')).to.equal(40);
-    expect(converter('xc')).to.equal(90);
-    expect(converter('cd')).to.equal(400);
-    expect(converter('cm')).to.equal(900);
-  });
-
-  it('should handle basic additive notation', function () {
-    expect(converter('ii')).to.equal(2);
-    expect(converter('iii')).to.equal(3);
-    expect(converter('vi')).to.equal(6);
-    expect(converter('vii')).to.equal(7);
-    expect(converter('viii')).to.equal(8);
-    expect(converter('xi')).to.equal(11);
-    expect(converter('lv')).to.equal(55);
-    expect(converter('ci')).to.equal(101);
-    expect(converter('cx')).to.equal(110);
-    expect(converter('mm')).to.equal(2000);
-  });
-
-  it('should handle complex mixed notation', function () {
-    expect(converter('cdxlviii')).to.equal(448);
-    expect(converter('mdcclxix')).to.equal(1769);
-    expect(converter('mmcmlxxxi')).to.equal(2981);
-    expect(converter('mmmdcccxlix')).to.equal(3849);
-    expect(converter('mmmcmxcix')).to.equal(3999);
   });
 
 });
