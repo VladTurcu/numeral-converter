@@ -64,7 +64,7 @@ describe('roman numeral converter', function () {
     expect(converter('v')).to.equal(5);
     expect(converter('x')).to.equal(10);
     expect(converter('l')).to.equal(50);
-    expect(converter('d')).to.equal(100);
+    expect(converter('c')).to.equal(100);
     expect(converter('d')).to.equal(500);
     expect(converter('m')).to.equal(1000);
   });
