@@ -67,7 +67,7 @@ class NumeralConverter {
    */
   toNumeral(n) {
     // validate arguments
-    if (typeof (n) !== 'number') throw new TypeError(`Expected number, recieved ${typeof (n)}`);
+    if (typeof (n) !== 'number' || isNaN(n)) throw new TypeError(`Expected number, recieved ${n}`);
     if (n <= 0 || 4000 <= n) throw new RangeError(`Expected number in range 1-3999, recieved ${n}`);
     if (!Number.isInteger(n)) throw new TypeError(`Expected integer, recieved float`);
 
