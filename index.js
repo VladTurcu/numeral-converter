@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
+const cors = require('cors');
 const numeralConverter = require('./NumeralConverter');
 const port = 4000;
 
@@ -13,6 +14,8 @@ router.route('/number')
     return res.status(200).json({ numeral });
   });
 
+// enable CORS
+app.use(cors());
 // numeral endpoint, corresponds to NumeralConverter.toNumber
 router.route('/numeral')
   // support get request only
