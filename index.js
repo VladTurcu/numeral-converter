@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const numeralConverter = require('./NumeralConverter');
-const port = 3000;
+const port = 4000;
 
 // number endpoint, corresponds to NumeralConverter.toNumeral
 router.route('/number')
