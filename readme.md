@@ -42,3 +42,4 @@ Lots of improvements to make, these would have been done time permitting.
 - Inputs should be sanitized and validated.
 - `input` and `OutputDisplay` values should be reset on `activeInput` change.
 - Should add front end tests.
+- Error responses from the API should be communicated to the user.
